@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Control de Pines Arduino</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Arduino PIN Test</h1>
+        <div class="pin-controls">
+            {% for i in range(1, 9) %}
+            <div class="pin">
+                <h2>Pin {{ i }}</h2>
+                <button id="button{{ i }}" onclick="togglePin({{ i }})">Encender</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        let pinStates = {};
+
+        function togglePin(pin) {
+            const button = document.getElementById(`button${pin}`);
+            const action = button.innerText === 'Encender' ? 'on' : 'off';
+
+            fetch('/control', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `pin=${pin}&action=${action}`
+            }).then(response => {
+                if (response.ok) {
+                    button.innerText = action === 'on' ? 'Apagar' : 'Encender';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

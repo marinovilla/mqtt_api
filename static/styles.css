@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #121212; /* Color de fondo oscuro */
+    color: #ffffff; /* Color del texto */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    color: #ffffff; /* Color del encabezado */
+    margin-bottom: 30px;
+}
+
+.pin-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espaciado entre los elementos */
+}
+
+.pin {
+    background-color: #1e1e1e; /* Color de fondo de cada pin */
+    border: 1px solid #444; /* Color del borde */
+    border-radius: 8px;
+    padding: 10px; /* Reducir el padding */
+    width: 150px; /* Ancho más pequeño */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+h2 {
+    margin: 0 0 10px 0; /* Margen del encabezado de cada pin */
+}
+
+button {
+    margin: 5px;
+    padding: 8px 12px; /* Reducir el tamaño del botón */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    cursor: pointer;
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
